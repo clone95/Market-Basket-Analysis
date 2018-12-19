@@ -97,3 +97,81 @@ In order to reduce the space where to look for “strong” rules, we tweaked Or
 •	Between 0 and 60 %  of minimum confidence we find too much rules, fixed the the most stringent min support (7 %), then it doesn’t make sense to explore this range  (conf 0 -> 60%)
 
 So, for our purposes, it makes sense to explore just between 3% and 7-8% of minimum support, and for each incrementale step in support, consider the minimum confidence between 60% and 100%. This allow us to reduce dramatically the computational time because the search space is a lot smaller thanks to these considerations.
+
+To give expendable knowledge to We-Commerce, we decide to consider only three situations which are three blue points in the Excel Table.
+
+## Low supp with the best confidence:  12  RULES (3 or 2 items -> 1 item)
+
+(['lon_4004', 'lon_2125', 'lon_4508'], ' ---> ', ['lon_4504'], 'supp', 5.226209048361934, 'conf', 0.9054054054054054)
+
+(['lon_4004', 'lon_4504', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 5.226209048361934, 'conf', 0.9178082191780822)
+
+(['lon_2119', 'lon_4504', 'lon_4508'], ' ---> ', ['lon_2125'], 'supp', 4.05616224648986, 'conf', 0.8813559322033898)
+
+(['lon_2119', 'lon_4504', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 4.05616224648986, 'conf', 0.896551724137931)
+
+(['lon_4504', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 6.5522620904836195, 'conf', 0.875)
+
+(['lon_4004', 'lon_4504'], ' ---> ', ['lon_4508'], 'supp', 6.240249609984399, 'conf', 0.8888888888888888)
+
+(['lon_4504', 'lon_4013'], ' ---> ', ['lon_2125'], 'supp', 4.446177847113884, 'conf', 0.890625)
+
+(['lon_4504', 'lon_4013'], ' ---> ', ['lon_4508'], 'supp', 4.368174726989079, 'conf', 0.875)
+
+(['lon_4108', 'lon_4504'], ' ---> ', ['lon_2125'], 'supp', 4.212168486739469, 'conf', 0.8709677419354839)
+
+(['lon_4108', 'lon_4504'], ' ---> ', ['lon_4508'], 'supp', 4.212168486739469, 'conf', 0.8709677419354839)
+
+(['lon_2119', 'lon_4004'], ' ---> ', ['lon_4504'], 'supp', 4.290171606864274, 'conf', 0.8870967741935484)
+
+(['lon_2119', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 4.758190327613105, 'conf', 0.8840579710144928)
+
+
+In this case we have those products that are more rarely visited but are often visited together. 
+
+## High supp with the best confidence:  6 RULES (only 1 item -> 1 item)
+
+(['lon_4508'], ' ---> ', ['lon_2125'], 'supp', 8.424336973478939, 'conf', 0.7012987012987013)
+
+(['lon_2125'], ' ---> ', ['lon_4508'], 'supp', 8.424336973478939, 'conf', 0.7346938775510204)
+
+(['lon_2125'], ' ---> ', ['lon_4504'], 'supp', 7.48829953198128, 'conf', 0.6530612244897959)
+
+(['lon_4504'], ' ---> ', ['lon_2125'], 'supp', 7.48829953198128, 'conf', 0.732824427480916)
+
+(['lon_4504'], ' ---> ', ['lon_4508'], 'supp', 7.800312012480499, 'conf', 0.7633587786259542)
+
+(['lon_4004'], ' ---> ', ['lon_4508'], 'supp', 7.410296411856475, 'conf', 0.7480314960629921)
+
+
+In this case we have group of products often bought but not so related. This is important because these products are a considerable part of the total things sold, so a small improve in this subset can provide a big value to the company.
+
+## A good trade-off point: 11 RULES (mostly 2 item -> 1 item)
+
+(['lon_2125', 'lon_4508'], ' ---> ', ['lon_4504'], 'supp', 6.5522620904836195, 'conf', 0.7777777777777778)
+
+(['lon_4504', 'lon_4508'], ' ---> ', ['lon_2125'], 'supp', 6.5522620904836195, 'conf', 0.84)
+
+(['lon_4504', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 6.5522620904836195, 'conf', 0.875)
+
+(['lon_4504', 'lon_2125'], ' ---> ', ['lon_4004'], 'supp', 5.694227769110764, 'conf', 0.7604166666666666)
+
+(['lon_4004', 'lon_2125'], ' ---> ', ['lon_4504'], 'supp', 5.694227769110764, 'conf', 0.8390804597701149)
+
+(['lon_4004', 'lon_4504'], ' ---> ', ['lon_2125'], 'supp', 5.694227769110764, 'conf', 0.8111111111111111)
+
+(['lon_4504', 'lon_4508'], ' ---> ', ['lon_4004'], 'supp', 6.240249609984399, 'conf', 0.8)
+
+(['lon_4004', 'lon_4508'], ' ---> ', ['lon_4504'], 'supp', 6.240249609984399, 'conf', 0.8421052631578947)
+
+(['lon_4004', 'lon_4504'], ' ---> ', ['lon_4508'], 'supp', 6.240249609984399, 'conf', 0.8888888888888888)
+
+(['lon_4004', 'lon_4508'], ' ---> ', ['lon_2125'], 'supp', 5.77223088923557, 'conf', 0.7789473684210526)
+
+(['lon_4004', 'lon_2125'], ' ---> ', ['lon_4508'], 'supp', 5.77223088923557, 'conf', 0.8505747126436781)
+
+(['lon_4504'], ' ---> ', ['lon_4508'], 'supp', 7.800312012480499, 'conf', 0.7633587786259542)
+
+(['lon_2119'], ' ---> ', ['lon_4508'], 'supp', 5.61622464898596, 'conf', 0.7741935483870968)
+
+
