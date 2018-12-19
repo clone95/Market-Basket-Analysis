@@ -103,7 +103,7 @@ So, for our purposes, it makes sense to explore just between 3% and 7-8% of mini
 
 To give expendable knowledge to We-Commerce, we decide to consider only three situations which are three blue points in the Excel Table.
 
-![Figure 1-1](https://raw.github.com/clone95/Market-Basket-Analysis/master/Capture.png "2")
+![Figure 1-1](https://raw.github.com/clone95/Market-Basket-Analysis/master/Capture.PNG "2")
 
 
 ## Low supp with the best confidence:  12  RULES (3 or 2 items -> 1 item)
